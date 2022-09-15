@@ -15,8 +15,33 @@ namespace Operatorok
             ElsoFeladat();
             MasodikFeladat();
             HarmadikFeladat();
+            NegyedikFeladat();
 
             Console.ReadKey();
+        }
+
+        private static void NegyedikFeladat()
+        {
+            Console.Write("4. feladat: ");
+
+            bool van = false;
+            int i = 0;
+            while (!van && i < operatorok.Count)
+            {
+                if (operatorok[i].ElsoOperandus % 10 == 0 && operatorok[i].MasodikOperandus % 10 == 0)
+                {
+                    van = true;
+                }
+                i++;
+            }
+
+            if (van)
+            {
+                Console.WriteLine("Van ilyen kifejezés!");
+            } else
+            {
+                Console.WriteLine("Nincs ilyen kifejezés!");
+            }
         }
 
         private static void HarmadikFeladat()
