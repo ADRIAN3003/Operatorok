@@ -10,14 +10,38 @@ namespace Operatorok
     class Program
     {
         static List<Operatorok> operatorok = new List<Operatorok>();
+        static Dictionary<string, int> stat = new Dictionary<string, int>();
         static void Main(string[] args)
         {
             ElsoFeladat();
             MasodikFeladat();
             HarmadikFeladat();
             NegyedikFeladat();
+            OtodikFeladat();
 
             Console.ReadKey();
+        }
+
+        private static void OtodikFeladat()
+        {
+            Console.WriteLine("5. feladat: ");
+
+            foreach (var item in operatorok)
+            {
+                if (stat.ContainsKey(item.Karakter))
+                {
+                    stat[item.Karakter]++;
+                } 
+                else
+                {
+                    stat.Add(item.Karakter, 1);
+                }
+            }
+
+            foreach (var item in stat)
+            {
+                Console.WriteLine($"\t{item.Key} -> {item.Value} db");
+            }
         }
 
         private static void NegyedikFeladat()
@@ -38,7 +62,8 @@ namespace Operatorok
             if (van)
             {
                 Console.WriteLine("Van ilyen kifejezés!");
-            } else
+            } 
+            else
             {
                 Console.WriteLine("Nincs ilyen kifejezés!");
             }
