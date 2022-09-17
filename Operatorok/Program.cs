@@ -28,13 +28,16 @@ namespace Operatorok
 
             foreach (var item in operatorok)
             {
-                if (stat.ContainsKey(item.Karakter))
+                if (item.Karakter == "mod" || item.Karakter == "/" || item.Karakter == "div" || item.Karakter == "-" || item.Karakter == "*" || item.Karakter == "+")
                 {
-                    stat[item.Karakter]++;
-                } 
-                else
-                {
-                    stat.Add(item.Karakter, 1);
+                    if (stat.ContainsKey(item.Karakter))
+                    {
+                        stat[item.Karakter]++;
+                    }
+                    else
+                    {
+                        stat.Add(item.Karakter, 1);
+                    }
                 }
             }
 
