@@ -32,11 +32,21 @@ namespace Operatorok
             private set { masodikOperandus = value; }
         }
 
+        private string egySor;
+
+        public string EgySor
+        {
+            get { return egySor; }
+            private set { egySor = value; }
+        }
+
         public Operatorok(int elsoOperandus, string karakter, int masodikOperandus)
         {
             this.elsoOperandus = elsoOperandus;
             this.karakter = karakter;
             this.masodikOperandus = masodikOperandus;
+
+            this.egySor = $"{elsoOperandus} {karakter} {masodikOperandus}";
         }
     }
 }

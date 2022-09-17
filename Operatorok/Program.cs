@@ -19,8 +19,21 @@ namespace Operatorok
             NegyedikFeladat();
             OtodikFeladat();
             HetedikFeladat();
+            NyolcadikFeladat();
 
             Console.ReadKey();
+        }
+
+        private static void NyolcadikFeladat()
+        {
+            Console.WriteLine("8. feladat: eredmenyek.txt");
+            using (StreamWriter sw = new StreamWriter("eredmenyek.txt"))
+            {
+                foreach (var item in operatorok)
+                {
+                    sw.WriteLine($"{item.EgySor} = {Szamitas(item.EgySor)}");
+                }
+            }
         }
 
         private static void HetedikFeladat()
@@ -73,7 +86,7 @@ namespace Operatorok
                 }
                 else
                 {
-                    return "Egyéb hiba!";
+                    return "Hibás operátor!";
                 }
             }
             catch (Exception)
