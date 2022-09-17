@@ -18,8 +18,68 @@ namespace Operatorok
             HarmadikFeladat();
             NegyedikFeladat();
             OtodikFeladat();
+            HetedikFeladat();
 
             Console.ReadKey();
+        }
+
+        private static void HetedikFeladat()
+        {
+            Console.Write("7. feladat: Kérek egy kifejezést (pl.: 1 + 1): ");
+            string bekeres = Console.ReadLine();
+            while (bekeres != "vége")
+            {
+                Console.WriteLine($"\t{bekeres} = {Szamitas(bekeres)}");
+                Console.Write("7. feladat: Kérek egy kifejezést (pl.: 1 + 1): ");
+                bekeres = Console.ReadLine();
+            }
+        }
+
+        private static string Szamitas(string adat)
+        {
+            try
+            {
+                string[] adatok = adat.Split(' ');
+                int szam1 = Convert.ToInt32(adatok[0]);
+                string karakter = adatok[1];
+                int szam2 = Convert.ToInt32(adatok[2]);
+
+                if (karakter == "mod" || karakter == "/" || karakter == "div" || karakter == "-" || karakter == "*" || karakter == "+")
+                {
+                    if ((karakter == "mod" || karakter == "/" || karakter == "div") && szam2 == 0)
+                    {
+                        return "Egyéb hiba!";
+                    }
+                    else
+                    {
+                        switch (karakter)
+                        {
+                            case "mod":
+                                return $"{szam1 % szam2}";
+                            case "/":
+                                return $"{(double)szam1 / (double)szam2}";
+                            case "div":
+                                return $"{szam1 / szam2}";
+                            case "-":
+                                return $"{szam1 - szam2}";
+                            case "*":
+                                return $"{szam1 * szam2}";
+                            case "+":
+                                return $"{szam1 + szam2}";
+                            default:
+                                return "Egyéb hiba!";
+                        }
+                    }
+                }
+                else
+                {
+                    return "Egyéb hiba!";
+                }
+            }
+            catch (Exception)
+            {
+                return "Egyéb hiba!";
+            }
         }
 
         private static void OtodikFeladat()
